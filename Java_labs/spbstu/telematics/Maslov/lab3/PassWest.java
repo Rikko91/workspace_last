@@ -1,13 +1,12 @@
 
 
-
 public class PassWest implements Runnable {
 	public int people_in_museum;
 	public boolean takeOutvisitors = false;
-	public Director director; // дирекnjh
-	public Controller controller; //контроллер
+	public Director director; // пїЅпїЅпїЅпїЅпїЅnjh
+	public Controller controller; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	public Visitors visitors;
-	public boolean entrance; // флаг на выход
+	public boolean entrance; // пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	public PassEast museum;
 	
 	
@@ -26,19 +25,19 @@ public class PassWest implements Runnable {
 	
 	
 	
-	public void takeOutVisitors () throws InterruptedException {	// убираем посетителей из музея
+	public void takeOutVisitors () throws InterruptedException {	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 		director.getDirectorLock().lock();
 		try {
 			//if (permitPeople() == false || permitPeople() == true  )
 			//{
-				//System.out.println("Музей закрыт - турникет West работает");
+				//System.out.println("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ West пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 				people_in_museum = visitors.getCountOutVisitorsToMuseum();
 				
 				while (people_in_museum != 0 ) {
 					people_in_museum--;
 					
 				}
-				System.out.println("Через WEST вышло - " + visitors.countOutVisitorsToMuseum + " людей, осталось " + ( museum.people_in_museum - visitors.countOutVisitorsToMuseum) ) ;
+				System.out.println("Р§РµСЂРµР· WEST РІС‹С€Р»Рѕ - " + visitors.countOutVisitorsToMuseum + " Р»СЋРґРµР№, РѕСЃС‚Р°Р»РѕСЃСЊ  " + museum.people_in_museum - visitors.countOutVisitorsToMuseum) ) ;
 				museum.people_in_museum = museum.people_in_museum - visitors.countOutVisitorsToMuseum;
 			//}
 		}
